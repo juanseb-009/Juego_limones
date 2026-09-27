@@ -26,6 +26,11 @@ function moverIzquierda(){
     actualizarscreen();
 
 }
+function moverDerecha(){
+    personajeX = personajeX+10;
+    actualizarscreen();
+
+}
 function actualizarscreen(){
     limpiarcanvaa();
     dibujarsuelo();
