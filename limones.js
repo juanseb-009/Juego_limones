@@ -5,9 +5,15 @@ const ALTURA_PLAYER=60;
 const ANCHO_PLAYER=40;
 
 let personajeX=canvas.width/2;
+let limonX= canvas.width/2;
+let limonY=5;
+
+const ancho_Limon=20;
+const alto_Limon=20;
 function iniciar(){
     dibujarplayer();
     dibujarsuelo();
+    pintarLimon();
 }
 
 function dibujarsuelo(){
@@ -35,9 +41,19 @@ function actualizarscreen(){
     limpiarcanvaa();
     dibujarsuelo();
     dibujarplayer();
-
+    pintarLimon();
 }
 
 function limpiarcanvaa(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
+}
+function pintarLimon(){
+
+    ctx.fillStyle="rgb(25, 255, 4)";
+    ctx.fillRect(limonX,limonY,ancho_Limon,alto_Limon)
+
+}
+function bajarLimon(){
+    limonY=limonY+10;
+    actualizarscreen();
 }
