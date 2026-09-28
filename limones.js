@@ -1,12 +1,13 @@
 let canvas = document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
-const ALTURA_SUELO=40;
+const ALTURA_SUELO=20;
 const ALTURA_PLAYER=60;
 const ANCHO_PLAYER=40;
 
 let personajeX=canvas.width/2;
+let personajeY= canvas.height-(ALTURA_SUELO+ALTURA_PLAYER);
 let limonX= canvas.width/2;
-let limonY=5;
+let limonY=0;
 
 const ancho_Limon=20;
 const alto_Limon=20;
@@ -23,18 +24,20 @@ function dibujarsuelo(){
 
 function dibujarplayer(){
     ctx.fillStyle="white";
-    ctx.fillRect(personajeX,canvas.height-(ALTURA_SUELO+ALTURA_PLAYER),ANCHO_PLAYER,ALTURA_PLAYER)
+    ctx.fillRect(personajeX,personajeY,ANCHO_PLAYER,ALTURA_PLAYER)
 
 }
 
 function moverIzquierda(){
     personajeX = personajeX-10;
     actualizarscreen();
+    detectarColission();
 
 }
 function moverDerecha(){
     personajeX = personajeX+10;
     actualizarscreen();
+    detectarColission();
 
 }
 function actualizarscreen(){
@@ -56,4 +59,9 @@ function pintarLimon(){
 function bajarLimon(){
     limonY=limonY+10;
     actualizarscreen();
+}
+function detectarColission(){
+    if(limonX + ancho_Limon > personajeX && limonX < personajeX+ANCHO_PLAYER && limonY + alto_Limon > personajeY && limonY < personajeY+ALTURA_PLAYER){
+        alert("ATRAPADO");
+    }
 }
