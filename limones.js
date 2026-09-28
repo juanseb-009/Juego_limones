@@ -10,10 +10,12 @@ let limonX= canvas.width/2;
 let limonY=0;
 let puntaje=0;
 let vidas=3;
+let velocidadC=200
 
 const ancho_Limon=20;
 const alto_Limon=20;
 function iniciar(){
+    setInterval(bajarLimon,velocidadC);//recive 1. una funcion y 2. milisegundos
     dibujarplayer();
     crearLimon();
     pintarLimon();
