@@ -78,7 +78,7 @@ function detectarColission(){
     cambiarV();
     if(puntaje == 10){
         alert("SI TIENES LIMONES HAS LIMONADA");
-        
+        clearInterval(intervaloLimon);
     }
     
 }
@@ -98,6 +98,7 @@ function detectarPiso(){
     }
     if(vidas <= 0){
         alert("GAME OVER");
+        clearInterval(intervaloLimon);
        }
 
 }
@@ -108,7 +109,7 @@ function cambiarV(){
         velocidadC = 100;
     }
     clearInterval(intervaloLimon);
-    intervaloLimon = setInterval(bajarLimon, velocidadC);
-
+    intervaloLimon=setInterval(bajarLimon,velocidadC);
+    
 
 }
