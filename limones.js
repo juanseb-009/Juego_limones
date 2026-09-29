@@ -113,3 +113,15 @@ function cambiarV(){
     
 
 }
+
+function reiniciar(){
+    clearInterval(intervaloLimon);
+    vidas = 3;
+    puntaje = 0;
+    velocidadC = 200;
+    limonY = 0;
+    personajeX = canvas.width/2;
+    mostrarEnSpan("txtVidas", vidas);
+    mostrarEnSpan("txtPuntaje",puntaje)
+    iniciar();
+}
