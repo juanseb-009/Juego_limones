@@ -11,11 +11,12 @@ let limonY=0;
 let puntaje=0;
 let vidas=3;
 let velocidadC=200
+let intervaloLimon;
 
 const ancho_Limon=20;
 const alto_Limon=20;
 function iniciar(){
-    setInterval(bajarLimon,velocidadC);//recive 1. una funcion y 2. milisegundos
+    intervaloLimon = setInterval(bajarLimon,velocidadC);//recive 1. una funcion y 2. milisegundos
     dibujarplayer();
     crearLimon();
     pintarLimon();
@@ -67,12 +68,19 @@ function bajarLimon(){
     detectarPiso();
 }
 function detectarColission(){
+    
     if(limonX + ancho_Limon > personajeX && limonX < personajeX+ANCHO_PLAYER && limonY + alto_Limon > personajeY && limonY < personajeY+ALTURA_PLAYER){
         //alert("ATRAPADO");
         crearLimon();
         puntaje = puntaje+1;
         mostrarEnSpan("txtPuntaje",puntaje);
     }
+    cambiarV();
+    if(puntaje == 10){
+        alert("SI TIENES LIMONES HAS LIMONADA");
+        
+    }
+    
 }
 
 
@@ -86,8 +94,21 @@ function detectarPiso(){
         crearLimon();
         vidas=vidas-1;
        mostrarEnSpan("txtVidas",vidas);
-       if(vidas == 0){
-            alert("GAME OVER");
-       }
+      
     }
+    if(vidas <= 0){
+        alert("GAME OVER");
+       }
+
+}
+function cambiarV(){
+     if (puntaje >= 3 && puntaje < 6) {
+        velocidadC = 150;
+    } else if (puntaje >= 6) {
+        velocidadC = 100;
+    }
+    clearInterval(intervaloLimon);
+    intervaloLimon = setInterval(bajarLimon, velocidadC);
+
+
 }
