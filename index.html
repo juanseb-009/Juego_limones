@@ -1,32 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caza Limones</title>
-  <link rel="stylesheet" href="limones.css"/>
+  <link rel="stylesheet" href="limones.css">
   <script src="utils.js"></script>
- 
- 
 </head>
+
 <body onload="iniciar()">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
 
-    <h2>Autor: Juan Santana</h2>
-    <canvas id = "areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>VIDAS: <span id="txtVidas">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
-     
+  <main class="contenedor">
 
-      <button onclick="reiniciar()">Reiniciar</button>
-    </div>
-  </div>
-   <script src="limones.js"></script>
-   
+    <header class="encabezado">
+      <div class="etiqueta">🍋 MINI GAME</div>
+
+      <h1>Atrapar Limones</h1>
+
+      <p>
+        Si del cielo te caen limones... ¡atrápalos todos!
+      </p>
+
+      <h2>Autor: Juan Santana</h2>
+    </header>
+
+
+    <section class="zona-juego" aria-label="Zona de juego">
+
+      <div class="marco-canvas">
+
+        <div class="barra-superior">
+          <span>🍋 Caza Limones</span>
+          <span>¡Buena suerte!</span>
+        </div>
+
+        <canvas id="areaJuego" width="600" height="400"></canvas>
+
+      </div>
+
+    </section>
+
+
+    <section class="panel" aria-label="Marcadores del juego">
+
+      <div class="marcador">
+
+        <span class="icono">🏆</span>
+
+        <div>
+          <span class="etiqueta-marcador">
+            PUNTAJE
+          </span>
+
+          <strong id="txtPuntaje">0</strong>
+        </div>
+
+      </div>
+
+
+      <div class="separador"></div>
+
+
+      <div class="marcador vidas">
+
+        <span class="icono">❤️</span>
+
+        <div>
+          <span class="etiqueta-marcador">
+            VIDAS
+          </span>
+
+          <strong id="txtVidas">3</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="botones" aria-label="Controles">
+
+      <button
+        class="boton boton-movimiento"
+        onclick="moverIzquierda()"
+        type="button">
+        <span>←</span> Izquierda
+      </button>
+
+
+      <button
+        class="boton boton-movimiento"
+        onclick="moverDerecha()"
+        type="button">
+        Derecha <span>→</span>
+      </button>
+
+
+      <button
+        class="boton boton-reiniciar"
+        onclick="reiniciar()"
+        type="button">
+        ↻ Reiniciar
+      </button>
+
+    </section>
+
+
+    <footer>
+      <span>Usa los botones para mover al jugador</span>
+      <span>•</span>
+      <span>¡Atrapa los limones!</span>
+    </footer>
+
+  </main>
+
+
+  <script src="limones.js"></script>
+
 </body>
 </html>
