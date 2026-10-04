@@ -1,121 +1,461 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caza Limones</title>
-  <link rel="stylesheet" href="limones.css">
-  <script src="utils.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>3AM — Atrapar Limones</title>
+
+    <!-- CSS EXTERNO -->
+    <link
+        rel="stylesheet"
+        href="limones.css"
+    >
+
+    <!-- Utilidades originales -->
+    <script src="utils.js"></script>
+
 </head>
+
 
 <body onload="iniciar()">
 
-  <main class="contenedor">
 
-    <header class="encabezado">
-      <div class="etiqueta">🍋 MINI GAME</div>
+    <!-- =================================================
+         CONTENEDOR PRINCIPAL
+    ================================================== -->
 
-      <h1>Atrapar Limones</h1>
-
-      <p>
-        Si del cielo te caen limones... ¡atrápalos todos!
-      </p>
-
-      <h2>Autor: Juan Santana</h2>
-    </header>
+    <main class="contenedor">
 
 
-    <section class="zona-juego" aria-label="Zona de juego">
+        <!-- =================================================
+             ENCABEZADO
+        ================================================== -->
 
-      <div class="marco-canvas">
-
-        <div class="barra-superior">
-          <span>🍋 Caza Limones</span>
-          <span>¡Buena suerte!</span>
-        </div>
-
-        <canvas id="areaJuego" width="600" height="400"></canvas>
-
-      </div>
-
-    </section>
+        <header class="encabezado">
 
 
-    <section class="panel" aria-label="Marcadores del juego">
+            <!-- Identidad musical -->
 
-      <div class="marcador">
+            <div class="identidad">
 
-        <span class="icono">🏆</span>
+                <span class="punto"></span>
 
-        <div>
-          <span class="etiqueta-marcador">
-            PUNTAJE
-          </span>
+                <span>03:00 AM</span>
 
-          <strong id="txtPuntaje">0</strong>
-        </div>
-
-      </div>
+            </div>
 
 
-      <div class="separador"></div>
+            <!-- Pequeño texto superior -->
+
+            <p class="mini-titulo">
+
+                PRESENTA
+
+            </p>
 
 
-      <div class="marcador vidas">
+            <!-- =================================================
+                 TÍTULO + LOGO 3AM
+            ================================================== -->
 
-        <span class="icono">❤️</span>
-
-        <div>
-          <span class="etiqueta-marcador">
-            VIDAS
-          </span>
-
-          <strong id="txtVidas">3</strong>
-        </div>
-
-      </div>
-
-    </section>
+            <div class="titulo-con-logo">
 
 
-    <section class="botones" aria-label="Controles">
+                <!-- Logo utilizado como marca de agua -->
 
-      <button
-        class="boton boton-movimiento"
-        onclick="moverIzquierda()"
-        type="button">
-        <span>←</span> Izquierda
-      </button>
+                <div class="logo-titulo"></div>
 
 
-      <button
-        class="boton boton-movimiento"
-        onclick="moverDerecha()"
-        type="button">
-        Derecha <span>→</span>
-      </button>
+                <!-- Título original -->
+
+                <h1>
+
+                    ATRAPAR
+
+                    <span>LIMONES</span>
+
+                </h1>
 
 
-      <button
-        class="boton boton-reiniciar"
-        onclick="reiniciar()"
-        type="button">
-        ↻ Reiniciar
-      </button>
-
-    </section>
+            </div>
 
 
-    <footer>
-      <span>Usa los botones para mover al jugador</span>
-      <span>•</span>
-      <span>¡Atrapa los limones!</span>
-    </footer>
+            <!-- Separador -->
 
-  </main>
+            <div class="separador-titulo"></div>
 
 
-  <script src="limones.js"></script>
+            <!-- Descripción -->
+
+            <p class="descripcion">
+
+                Si del cielo te caen limones...
+
+            </p>
+
+
+            <p class="frase">
+
+                ATRÁPALOS ANTES DE QUE CAIGAN.
+
+            </p>
+
+
+            <!-- Autor -->
+
+            <p class="autor">
+
+                Un juego de
+
+                <strong>Juan Santana</strong>
+
+            </p>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             SECCIÓN DEL JUEGO
+        ================================================== -->
+
+        <section class="seccion-juego">
+
+
+            <div class="player">
+
+
+                <!-- =================================================
+                     CABECERA DEL JUEGO
+                ================================================== -->
+
+                <div class="player-header">
+
+
+                    <div class="track-info">
+
+
+                        <div class="estado">
+
+                            <span class="punto-reproduccion"></span>
+
+                            <span>NOW PLAYING</span>
+
+                        </div>
+
+
+                        <strong>
+
+                            ATRAPAR LIMONES
+
+                        </strong>
+
+
+                    </div>
+
+
+                    <span class="track-numero">
+
+                        03 / 03
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ÁREA DEL JUEGO
+                ================================================== -->
+
+                <div class="canvas-wrapper">
+
+
+                    <!-- Esquina decorativa -->
+
+                    <div class="esquina esquina-superior"></div>
+
+                    <div class="esquina esquina-inferior"></div>
+
+
+                    <!-- IMPORTANTE:
+                         NO CAMBIAR ESTE ID -->
+
+                    <canvas
+                        id="areaJuego"
+                        width="600"
+                        height="400">
+                    </canvas>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BARRA INFERIOR
+                ================================================== -->
+
+                <div class="player-footer">
+
+
+                    <span>
+
+                        03:00 AM
+
+                    </span>
+
+
+                    <div class="barra-progreso">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <span>
+
+                        PLAY
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MARCADORES
+        ================================================== -->
+
+        <section class="panel">
+
+
+            <!-- PUNTAJE -->
+
+            <div class="estadistica">
+
+
+                <div class="icono icono-score">
+
+                    ★
+
+                </div>
+
+
+                <div class="informacion">
+
+
+                    <span>
+
+                        SCORE
+
+                    </span>
+
+
+                    <!-- IMPORTANTE:
+                         NO CAMBIAR ESTE ID -->
+
+                    <strong id="txtPuntaje">
+
+                        0
+
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="separador-panel"></div>
+
+
+
+            <!-- VIDAS -->
+
+            <div class="estadistica">
+
+
+                <div class="icono icono-vidas">
+
+                    ♥
+
+                </div>
+
+
+                <div class="informacion">
+
+
+                    <span>
+
+                        LIVES
+
+                    </span>
+
+
+                    <!-- IMPORTANTE:
+                         NO CAMBIAR ESTE ID -->
+
+                    <strong id="txtVidas">
+
+                        3
+
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTROLES
+        ================================================== -->
+
+        <section class="botones">
+
+
+            <!-- IMPORTANTE:
+                 MANTENER LA FUNCIÓN ORIGINAL -->
+
+            <button
+                class="boton"
+                type="button"
+                onclick="moverIzquierda()"
+            >
+
+                <span class="flecha">
+
+                    ←
+
+                </span>
+
+                IZQUIERDA
+
+            </button>
+
+
+
+            <!-- IMPORTANTE:
+                 MANTENER LA FUNCIÓN ORIGINAL -->
+
+            <button
+                class="boton"
+                type="button"
+                onclick="moverDerecha()"
+            >
+
+                DERECHA
+
+                <span class="flecha">
+
+                    →
+
+                </span>
+
+            </button>
+
+
+
+            <!-- IMPORTANTE:
+                 MANTENER LA FUNCIÓN ORIGINAL -->
+
+            <button
+                class="boton boton-reiniciar"
+                type="button"
+                onclick="reiniciar()"
+            >
+
+                ↻
+
+                REINICIAR
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+
+            <span>
+
+                3AM
+
+            </span>
+
+
+            <span class="punto-footer">
+
+                •
+
+            </span>
+
+
+            <span>
+
+                ATRAPAR LIMONES
+
+            </span>
+
+
+            <span class="punto-footer">
+
+                •
+
+            </span>
+
+
+            <span>
+
+                2026
+
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =================================================
+         JAVASCRIPT ORIGINAL DEL JUEGO
+    ================================================== -->
+
+    <script src="limones.js"></script>
+
 
 </body>
+
 </html>
